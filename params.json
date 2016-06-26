@@ -1,0 +1,6 @@
+{
+  "name": "chai-validate-response",
+  "tagline": "A chai assertion plugin for validating Responses with a Swagger / OAI schema",
+  "body": "#chai-validate-response\r\n\r\nA chai assertion plugin for validating [Responses](https://developer.mozilla.org/en-US/docs/Web/API/Response) with a [Swagger / OAI](https://github.com/OAI/OpenAPI-Specification) schema.\r\n\r\n##Installation\r\n\r\n```\r\nnpm install --save-dev chai-validate-response\r\n```\r\n\r\n##Usage\r\n\r\n```js\r\nvar chai = require(\"chai\");\r\nvar chaiValidateResponse = require(\"chai-validate-response\");\r\n\r\nchai.use(chaiValidateResponse);\r\n```\r\n\r\n##License\r\nchai-validate-response is licensed unter the [MIT License](LICENSE.md).",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
