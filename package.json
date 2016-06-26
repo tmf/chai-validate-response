@@ -4,7 +4,7 @@
   "description": "A chai assertion plugin for validating Responses with a Swagger / OAI schema",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
+    "test": "mocha --compilers js:babel-core/register",
     "lint": "eslint  --ignore-path .gitignore ."
   },
   "repository": {
@@ -26,12 +26,15 @@
     "node": ">=4.2.0"
   },
   "devDependencies": {
+    "babel-core": "^6.10.4",
+    "babel-preset-es2015": "^6.9.0",
     "chai": "^3.5.0",
     "eslint": "^2.13.1",
     "eslint-config-eslint": "^3.0.0",
     "ghooks": "^1.2.4",
     "mocha": "^2.5.3",
-    "validate-commit-msg": "^2.6.1"
+    "validate-commit-msg": "^2.6.1",
+    "whatwg-fetch": "^1.0.0"
   },
   "config": {
     "validate-commit-msg": {
