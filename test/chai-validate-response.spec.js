@@ -2,6 +2,7 @@
 
 import chai, { expect } from "chai";
 import chaiValidateResponse from "../lib/chai-validate-response";
+import chaiAsPromised from "chai-as-promised";
 import generateSchema from "./helper/generate-schema";
 import generateJsonResponse from "./helper/generate-json-response";
 
@@ -32,6 +33,21 @@ describe("chai-validate-response", () => {
             });
 
             expect(response).not.to.be.a.validResponse(schema, "/", "get").notify(done);
+        });
+
+        it("should work with the chai-as-promised plugin", (done) => {
+            chai.use(chaiAsPromised);
+
+            let response = generateJsonResponse({ foo: 3 });
+            let schema = generateSchema({
+                type: "object",
+                properties: {
+                    foo: { type: "boolean" }
+                },
+                required: ["foo"]
+            });
+
+            expect(response).not.to.be.a.validResponse(schema, "/", "get").and.eventually.be.rejected.and.notify(done);
         });
     });
 });
