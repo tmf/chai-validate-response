@@ -1,7 +1,7 @@
 "use strict";
 
 import chai, { expect } from "chai";
-import chaiValidateResponse from "../lib/chai-validate-response";
+import chaiValidateResponse from "../src/chai-validate-response";
 import chaiAsPromised from "chai-as-promised";
 import generateSchema from "./helper/generate-schema";
 import generateJsonResponse from "./helper/generate-json-response";
