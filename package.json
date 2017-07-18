@@ -2,10 +2,15 @@
   "name": "chai-validate-response",
   "version": "0.0.1",
   "description": "A chai assertion plugin for validating Responses with a Swagger / OAI schema",
-  "main": "index.js",
+  "main": "lib/chai-validate-response.js",
   "scripts": {
+    "build": "babel --source-maps -d lib/ src/",
+    "lint": "eslint  --ignore-path .gitignore .",
+    "prepublish": "npm run lint && npm run build && npm run build",
     "test": "mocha --compilers js:babel-core/register",
-    "lint": "eslint  --ignore-path .gitignore ."
+    "precommit": "npm run lint",
+    "commitmsg": "validate-commit-msg",
+    "prepush": "npm test"
   },
   "repository": {
     "type": "git",
@@ -30,6 +35,7 @@
     "z-schema": "^3.17.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.24.1",
     "babel-core": "^6.10.4",
     "babel-preset-es2015": "^6.9.0",
     "chai": "^3.5.0",
@@ -37,7 +43,7 @@
     "eslint": "^2.13.1",
     "eslint-config-eslint": "^3.0.0",
     "express": "^4.14.0",
-    "ghooks": "^1.2.4",
+    "husky": "^0.14.3",
     "mocha": "^2.5.3",
     "supertest": "^1.2.0",
     "validate-commit-msg": "^2.6.1",
@@ -46,13 +52,6 @@
   "config": {
     "validate-commit-msg": {
       "helpMessage": "\n-----------\n\nThere was a small validation problem with your commit message:\n\n> %s\n\nIt's not a huge problem, but a valid commit message will ensure\nwhether your commit triggers a release or not (and sometimes the\ncommit won't need to trigger a commit). If you really need to, you\ncan skip the validation using `git commit --no-verify`.\n\nIf your commit is a fix, it might want to be:\n\n> fix: storage bug\n\nOr a feature:\n\n> feat: added new storage process\n\nThere's also `docs`, `test` and `chore` and a few more. To read\nhow the commit message should be formatted, please see this short\npost: https://git.io/v2Nnm\n"
-    },
-    "ghooks": {
-      "pre-commit": "npm run lint",
-      "commit-msg": "validate-commit-msg",
-      "pre-push": "npm test",
-      "post-merge": "npm install",
-      "post-rewrite": "npm install"
     }
   },
   "eslintConfig": {
